@@ -7,13 +7,7 @@ const About = () => {
         <div className="banner">
           <h1>Our Story</h1>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laudantium
-            ipsum voluptatum excepturi temporibus eligendi molestiae, vero
-            corporis earum beatae nobis ea vitae non repudiandae libero
-            necessitatibus? Rem eum sunt itaque recusandae ipsam saepe, aliquid
-            delectus magni iste dignissimos vitae quas aut aspernatur dolor hic
-            esse ex sint perferendis ipsa dolore. Earum facilis ducimus illum
-            vero fuga ipsum, ad nulla dolorem.
+          Our organization was founded with the mission to protect and preserve our planet for future generations. Through educational resources, hands-on initiatives, and community-driven action, we empower individuals and communities to make sustainable choices. We believe that through collective effort, we can address the pressing environmental challenges of today, from climate change to biodiversity loss, and create a more sustainable world. Join us in our commitment to conservation, as we work to safeguard natural habitats, promote renewable energy, and foster a culture of sustainability.
           </p>
         </div>
         <div className="banner">
