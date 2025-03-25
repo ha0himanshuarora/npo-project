@@ -5,23 +5,23 @@ const Qualities = () => {
     {
       id: 1,
       image: "/community.jpg",
-      title: "COMMUNITY DEVELOPMENT",
+      title: "EMPOWERING COMMUNITIES",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis culpa odio numquam ill laudantium nobis non illum cupiditate vero possimus quod quia nam, unde, labore suscipit obcaecati minus voluptates, autem velit.Facere numquam cum modi, molestiae eius libero mollitia aut!",
+        "We work closely with local communities to develop sustainable solutions that not only protect the environment but also improve livelihoods. Through education, advocacy, and active involvement, we empower individuals to take ownership of conservation efforts, fostering a sense of responsibility and collective action.",
     },
     {
       id: 2,
       image: "/transparency.jpg",
-      title: "TRANSPARENCY",
+      title: "COMMITMENT TO TRANSPARENCY",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis culpa odio numquam ill laudantium nobis non illum cupiditate vero possimus quod quia nam, unde, labore suscipit obcaecati minus voluptates, autem velit.Facere numquam cum modi, molestiae eius libero mollitia aut!",
+        "Transparency is at the heart of everything we do. We believe in building trust by providing clear, accessible information about our initiatives, funding, and outcomes. Our donors, partners, and community members are always kept informed on how their contributions are making a real difference.",
     },
     {
       id: 3,
       image: "/impact.jpg",
-      title: "IMPACT MEASUREMENT",
+      title: "MEASURING IMPACT",
       description:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis culpa odio numquam ill laudantium nobis non illum cupiditate vero possimus quod quia nam, unde, labore suscipit obcaecati minus voluptates, autem velit.Facere numquam cum modi, molestiae eius libero mollitia aut!",
+        "We continuously evaluate the impact of our programs to ensure that they are driving meaningful change. By tracking key metrics, we are able to refine our strategies, maximize our efficiency, and ensure that every action we take is leading toward a more sustainable future.",
     },
   ];
   return (
