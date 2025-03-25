@@ -5,15 +5,13 @@ const Hero = () => {
   return (
     <section className="hero">
       <div className="banner">
-        <h1>Volunteers</h1>
-        <h3>Needed</h3>
+        <h1>Join Our Mission</h1>
+        <h3>Be the Change</h3>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus
-          tenetur laborum incidunt dolore nisi quaerat dicta soluta? Beatae
-          aliquid excepturi animi vel, provident nisi dolorem?
+          Your time and effort can make a lasting impact on our planet. Join us in protecting nature, supporting sustainability initiatives, and creating a greener future. Whether through volunteering, donations, or spreading awareness, every action counts!
         </p>
         <Link to={"/donate"} className="btn">
-          Donate Now
+        Support Our Cause
         </Link>
       </div>
       <div className="banner">
