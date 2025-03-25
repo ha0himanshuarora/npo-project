@@ -354,7 +354,7 @@ footer div ul a span {
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid rgb(133, 133, 133);
-  padding: 20px 110px;
+  padding: 5px 110px;
   align-items: center;
 }
 .navbar .hamburger {
