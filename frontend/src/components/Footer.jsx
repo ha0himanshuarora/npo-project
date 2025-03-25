@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   FaSquareTwitter,
-  FaSquareInstagram,
+  FaGithub,
   FaYoutube,
   FaLinkedin,
 } from "react-icons/fa6";
@@ -16,25 +16,25 @@ const Footer = () => {
       <div>
         <h4>Support</h4>
         <ul>
-          <li>New York, USA</li>
-          <li>crypto@gmail.com</li>
-          <li>+92 123123123</li>
+          <li>Chandigarh, India</li>
+          <li><a href="mailto:ha0himanshuarora@gmail.com">ha0himanshuarora@gmail.com</a></li>
+          <li><a href="tel:+916283610806">+91 6283610806</a></li>
         </ul>
       </div>
       <div>
         <h4>Quick Links</h4>
         <ul>
           <li>
-            <Link to={"/"}>Home</Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to={"/donate"}>Donate</Link>
+            <Link to="/donate">Donate</Link>
           </li>
           <li>
-            <Link to={"/about"}>About</Link>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <Link to={"/contact"}>Contact</Link>
+            <Link to="/contact">Contact</Link>
           </li>
         </ul>
       </div>
@@ -42,40 +42,23 @@ const Footer = () => {
         <h4>Follow Us</h4>
         <ul>
           <li>
-            <Link to={"/"}>
-              {" "}
-              <span>
-                <FaSquareTwitter />
-              </span>{" "}
-              <span>Twitter (X)</span>{" "}
-            </Link>
+          <a href="https://github.com/ha0himanshuarora" target="_blank" rel="noopener noreferrer">
+            <span>  <FaGithub />  </span>{" "}  
+            <span>GitHub</span>
+          </a>
+
           </li>
           <li>
-            <Link to={"/"}>
-              {" "}
-              <span>
-                <FaYoutube />
-              </span>{" "}
-              <span>Youtube</span>{" "}
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"}>
-              {" "}
-              <span>
-                <FaSquareInstagram />
-              </span>{" "}
-              <span>Instagram</span>{" "}
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"}>
-              {" "}
+            <a
+              href="https://www.linkedin.com/in/himanshu-arora-3621b52b4/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <span>
                 <FaLinkedin />
               </span>{" "}
-              <span>Linkedin</span>{" "}
-            </Link>
+              <span>LinkedIn</span>
+            </a>
           </li>
         </ul>
       </div>
