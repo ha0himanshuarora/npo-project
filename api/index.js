@@ -1,30 +1,37 @@
-import express from "express";
 import mongoose from "mongoose";
+import Message from "../../models/message"; // Adjust path based on your project structure
 import dotenv from "dotenv";
-import cors from "cors";
-import Message from "../models/message.js"; // Adjusted path for models
+import express from "express";
 
 dotenv.config();
-
 const app = express();
+app.use(express.json());
 
 // Update CORS to allow requests from your Vercel domain
 app.use(cors({ origin: "https://npo-project.vercel.app", credentials: true }));
-app.use(express.json());
 
-// MongoDB Connection
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+// MongoDB Connection Handling (for serverless)
+let isConnected;
+const connectToDatabase = async () => {
+  if (isConnected) {
+    return;
+  }
+  try {
+    const db = await mongoose.connect(process.env.MONGO_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    isConnected = db.connections[0].readyState;
+    console.log("MongoDB connected");
+  } catch (err) {
+    console.error("MongoDB connection error:", err);
+  }
+};
 
-// Example Route
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
-
-// Route to handle contact form submissions
+// POST route for sending messages
 app.post("/api/v1/message/send", async (req, res) => {
+  await connectToDatabase(); // Ensure MongoDB is connected
+
   try {
     const { name, email, phone, message } = req.body;
 
@@ -44,5 +51,7 @@ app.post("/api/v1/message/send", async (req, res) => {
   }
 });
 
-// Export the app as a serverless function
-export default app;
+// Export Express app as a Vercel serverless function
+export default (req, res) => {
+  app(req, res); // Pass the request to the Express app
+};
