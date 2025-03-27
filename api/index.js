@@ -19,9 +19,10 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Example Route
-app.get("/", (req, res) => {
-  res.send("API is running...");
+app.get("/api/index", (req, res) => {
+  res.send("API is running on /api/index");
 });
+
 
 // Route to handle contact form submissions
 app.post("/api/v1/message/send", async (req, res) => {
