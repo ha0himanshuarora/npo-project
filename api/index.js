@@ -1,8 +1,11 @@
+// api/index.js
+
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import Message from "../models/message.js"; // Adjusted path for models
+import serverlessHttp from "serverless-http";
 
 dotenv.config();
 
@@ -13,16 +16,23 @@ app.use(cors({ origin: "https://npo-project.vercel.app", credentials: true }));
 app.use(express.json());
 
 // MongoDB Connection
+mongoose.set("strictQuery", false); // Optional: Disable strict query warnings
+
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .catch((err) => {
+    console.error("MongoDB connection error:", err);
+    process.exit(1); // Exit the process if MongoDB connection fails
+  });
 
 // Example Route
 app.get("/api/index", (req, res) => {
   res.send("API is running on /api/index");
 });
-
 
 // Route to handle contact form submissions
 app.post("/api/v1/message/send", async (req, res) => {
@@ -45,5 +55,16 @@ app.post("/api/v1/message/send", async (req, res) => {
   }
 });
 
-// Export the app as a serverless function
-export default app;
+// Wrap the Express app with serverless-http
+const handler = serverlessHttp(app);
+
+// Export the handler as the default export
+export default handler;
+
+// For local testing
+if (process.env.NODE_ENV !== "production") {
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
