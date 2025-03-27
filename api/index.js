@@ -23,9 +23,13 @@ app.get("/api/index", (req, res) => {
   res.send("API is running on /api/index");
 });
 
+// Route to handle GET requests for /api/v1/message
+app.get("/api/v1/message", (req, res) => {
+  res.status(405).json({ message: "Method not allowed." });
+});
 
-// Route to handle contact form submissions
-app.post("/api/v1/message", async (req, res) => {
+// Route to handle contact form submissions (POST only)
+app.post("/api/v1/message/send", async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
 
