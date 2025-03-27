@@ -25,7 +25,7 @@ app.get("/api/index", (req, res) => {
 
 
 // Route to handle contact form submissions
-app.post("/api/v1/message/send", async (req, res) => {
+app.post("/api/index", async (req, res) => {
   try {
     const { name, email, phone, message } = req.body;
 
