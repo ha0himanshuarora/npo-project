@@ -12,14 +12,13 @@ const Contact = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/v1/message/send", // Corrected port
+        "https://npo-project.vercel.app/api/server", // Replace with your Vercel URL
         { name, email, phone, message },
         {
           withCredentials: true,
           headers: { "Content-Type": "application/json" },
         }
       );
-
       setName("");
       setEmail("");
       setPhone("");
