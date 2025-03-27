@@ -12,7 +12,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "https://npo-project.vercel.app/api/server", // Replace with your Vercel URL
+        "https://npo-project.vercel.app/api/server", // Correct endpoint for server.js
         { name, email, phone, message },
         {
           withCredentials: true,
