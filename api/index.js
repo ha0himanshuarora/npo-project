@@ -1,11 +1,8 @@
-// pages/api/index.js
-
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import Message from "../models/message.js"; // Adjusted path for models
-import serverlessHttp from "serverless-http";
 
 dotenv.config();
 
@@ -25,6 +22,7 @@ mongoose
 app.get("/api/index", (req, res) => {
   res.send("API is running on /api/index");
 });
+
 
 // Route to handle contact form submissions
 app.post("/api/v1/message/send", async (req, res) => {
@@ -48,4 +46,4 @@ app.post("/api/v1/message/send", async (req, res) => {
 });
 
 // Export the app as a serverless function
-export const handler = serverlessHttp(app);
+export default app;
