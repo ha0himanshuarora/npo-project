@@ -1,8 +1,11 @@
+// api/index.js
+
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import Message from "../models/message.js"; // Adjusted path for models
+import serverlessHttp from "serverless-http";
 
 dotenv.config();
 
@@ -14,7 +17,10 @@ app.use(express.json());
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
@@ -22,7 +28,6 @@ mongoose
 app.get("/api/index", (req, res) => {
   res.send("API is running on /api/index");
 });
-
 
 // Route to handle contact form submissions
 app.post("/api/v1/message/send", async (req, res) => {
@@ -46,4 +51,4 @@ app.post("/api/v1/message/send", async (req, res) => {
 });
 
 // Export the app as a serverless function
-export default app;
+export const handler = serverlessHttp(app);
